@@ -50,7 +50,8 @@ public class Publicacion {
             // Lo marcamos como no disponible.
             this.disponible = false;
             return true; // Como todo esta correcto, retornamos true (verdadero) (es decir que se presto)
-        }
+            }
+            System.out.println("ERROR: No se encuentra disponible");
         return false; // No estaba disponible, por ende no se presto, retornamos false (falso)
     }
 
