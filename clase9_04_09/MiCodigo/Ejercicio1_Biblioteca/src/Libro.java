@@ -1,13 +1,20 @@
 public class Libro {
+
+    // Atributos de la Clase Libro
+
     private String titulo;
     private String autor;
     private boolean disponible;
 
-    public Libro(String titulo, String autor, boolean disponible){
+    // Constructor de la Clase Libro
+
+    public Libro(String titulo, String autor, boolean disponible) {
         this.titulo = titulo;
         this.autor = autor;
         this.disponible = disponible;
     }
+
+    // Getters y Setters
 
     public String getTitulo() {
         return titulo;
@@ -33,6 +40,7 @@ public class Libro {
         this.disponible = disponible;
     }
 
+    // toString
     @Override
     public String toString() {
         return "Libro [titulo=" + titulo + ", autor=" + autor + ", disponible=" + disponible + "]";
