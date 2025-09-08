@@ -22,15 +22,16 @@ public class Biblioteca {
     // Metodos de la Clase Biblioteca
 
     // Prestar Libro
-    public void prestarLibro(String titulo) throws exceptions.LibroNoEncontradoException, exceptions.LibroYaPrestadoException {
+    public void prestarLibro(String titulo) throws exceptions.LibroNoEncontradoException, exceptions.SinCopiasException{
         for (Libro libro : libros) {
             if (libro.getTitulo().equalsIgnoreCase(titulo)) {
-                if (libro.isDisponible()) {
-                    libro.setDisponible(false);
+                if (libro.getCopias() > 0) {
+                    libro.setCopias(libro.getCopias() - 1);
                     System.out.println("El libro \"" + titulo + "\" ha sido prestado.");
+                    System.out.println("Copias restantes: " + libro.getCopias());
                     return;
                 } else {
-                    throw new exceptions.LibroYaPrestadoException("El libro \"" + titulo + "\" ya está prestado.");
+                    throw new exceptions.SinCopiasException("No hay copias disponibles del libro \"" + titulo + "\".");
                 }
             }
         }
@@ -38,20 +39,29 @@ public class Biblioteca {
     }
 
     // Devolver Libro
-    public void devolverLibro(String titulo) throws exceptions.LibroNoEncontradoException, exceptions.LibroYaDisponibleException {
+    public void devolverLibro(String titulo) throws exceptions.LibroNoEncontradoException {
         for (Libro libro : libros) {
             if (libro.getTitulo().equalsIgnoreCase(titulo)) {
-                if (!libro.isDisponible()) {
-                    libro.setDisponible(true);
+                    libro.setCopias(libro.getCopias() + 1);
                     System.out.println("El libro \"" + titulo + "\" ha sido devuelto.");
+                    System.out.println("Copias disponibles: " + libro.getCopias());
                     return;
-                } else {
-                    throw new exceptions.LibroYaDisponibleException("El libro \"" + titulo + "\" ya está disponible.");
-                }
             }
         }
         throw new exceptions.LibroNoEncontradoException("El libro \"" + titulo + "\" no se encuentra en la biblioteca.");
     }
 
-}
+    // Mostrar inventario
+    public void mostrarInventario() {
+        System.out.println("Inventario de la Biblioteca:");
 
+        if(libros.isEmpty()) {
+            System.out.println("No hay libros en la biblioteca.");
+            return;
+        }
+
+        for (Libro libro : libros) {
+            System.out.println(libro.getTitulo() + " - Autor: " + libro.getAutor() + " - Copias disponibles: " + libro.getCopias());
+        }
+    }
+}

@@ -4,14 +4,14 @@ public class Libro {
 
     private String titulo;
     private String autor;
-    private boolean disponible;
+    private int copias;
 
     // Constructor de la Clase Libro
 
-    public Libro(String titulo, String autor, boolean disponible) {
+    public Libro(String titulo, String autor, int copias) {
         this.titulo = titulo;
         this.autor = autor;
-        this.disponible = disponible;
+        this.copias = copias;
     }
 
     // Getters y Setters
@@ -32,17 +32,17 @@ public class Libro {
         this.autor = autor;
     }
 
-    public boolean isDisponible() {
-        return disponible;
+    public int getCopias() {
+        return copias;
     }
 
-    public void setDisponible(boolean disponible) {
-        this.disponible = disponible;
+    public void setCopias(int copias) {
+        this.copias = copias;
     }
 
     // toString
     @Override
     public String toString() {
-        return "Libro [titulo=" + titulo + ", autor=" + autor + ", disponible=" + disponible + "]";
+        return "Libro [titulo=" + titulo + ", autor=" + autor + ", copias=" + copias + "]";
     }
 }
