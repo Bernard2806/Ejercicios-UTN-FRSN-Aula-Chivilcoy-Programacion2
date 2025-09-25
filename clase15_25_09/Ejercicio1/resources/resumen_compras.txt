@@ -1,0 +1,4 @@
+--- Resumen de Compras ---
+Cantidad de Productos: 8
+Primer Producto: Manzanas
+Ultimo Producto: Tomates
