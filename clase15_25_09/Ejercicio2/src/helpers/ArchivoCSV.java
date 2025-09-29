@@ -1,3 +1,5 @@
+package helpers;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -6,6 +8,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+import models.Producto;
+import models.Categoria;
 
 public class ArchivoCSV {
     public static ArrayList<Producto> leerCSVProducto(String ruta) {
@@ -48,6 +52,9 @@ public class ArchivoCSV {
                             .filter(c -> c.name().equalsIgnoreCase(categoriaStr))
                             .findFirst()
                             .orElseThrow(() -> new IllegalArgumentException("Categoría inválida: " + categoriaStr));
+
+                    // Metodo usado x el profe
+                    // Categoria categoria = Categoria.ValueOf(partes[1].trim()))
 
                     double precio = Double.parseDouble(partes[2].trim());
                     int cantidad = Integer.parseInt(partes[3].trim());

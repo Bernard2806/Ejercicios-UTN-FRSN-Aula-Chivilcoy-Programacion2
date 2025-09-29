@@ -1,11 +1,13 @@
+package models;
+
 public class Producto {
 
     // --- Propiedades del Producto ---
 
     private String nombre;
     private Categoria categoria;
-    private Double precio;
-    private Integer cantidad;
+    private double precio;
+    private int cantidad;
 
     // --- Constructor del Producto ---
 

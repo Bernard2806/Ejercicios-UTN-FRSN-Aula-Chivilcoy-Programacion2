@@ -1,0 +1,81 @@
+1 - Nombre: Manzanas
+    - Cantidad: $5
+    - Precio: $150,50
+    - Subtotal: $752,50
+
+2 - Nombre: Leche
+    - Cantidad: $2
+    - Precio: $280,00
+    - Subtotal: $560,00
+
+3 - Nombre: Pan
+    - Cantidad: $3
+    - Precio: $120,75
+    - Subtotal: $362,25
+
+4 - Nombre: Huevos
+    - Cantidad: $1
+    - Precio: $350,00
+    - Subtotal: $350,00
+
+5 - Nombre: Queso
+    - Cantidad: $2
+    - Precio: $450,25
+    - Subtotal: $900,50
+
+6 - Nombre: Arroz
+    - Cantidad: $2
+    - Precio: $180,00
+    - Subtotal: $360,00
+
+7 - Nombre: Pollo
+    - Cantidad: $1
+    - Precio: $890,50
+    - Subtotal: $890,50
+
+8 - Nombre: Tomates
+    - Cantidad: $3
+    - Precio: $220,30
+    - Subtotal: $660,90
+
+9 - Nombre: Yogurt
+    - Cantidad: $4
+    - Precio: $320,00
+    - Subtotal: $1280,00
+
+10 - Nombre: Fideos
+    - Cantidad: $5
+    - Precio: $95,75
+    - Subtotal: $478,75
+
+
+
+- Categoria: FRUTAS
+    - Cantidad: $5
+    - Total: $752,50
+
+- Categoria: VERDURAS
+    - Cantidad: $3
+    - Total: $660,90
+
+- Categoria: LACTEOS
+    - Cantidad: $9
+    - Total: $3090,50
+
+- Categoria: CARNES
+    - Cantidad: $1
+    - Total: $890,50
+
+- Categoria: PANADERIA
+    - Cantidad: $3
+    - Total: $362,25
+
+- Categoria: GRANOS
+    - Cantidad: $7
+    - Total: $838,75
+
+
+
+Categoria más Cara:LACTEOS
+Categoria más Barata:PANADERIA
+Total General: $6595.4
