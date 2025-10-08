@@ -77,7 +77,7 @@ public class App {
         System.out.print("Ingrese la fecha de nacimiento (dd/mm/yyyy): ");
         String fechaNacimientoString = scanner.nextLine();
 
-        // --- Conversión de String a LocalDate ---
+        // ---- Conversión de String a LocalDate ----
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate fechaNacimiento = null;
 
@@ -88,10 +88,10 @@ public class App {
             return;
         }
 
-        // --- Crear Persona ---
+        // ---- Crear Persona ----
         Persona nueva = new Persona(nombre, apellido, fechaNacimiento);
 
-        // --- Agregar a lista y archivo ---
+        // ---- Agregar a lista y archivo ----
         personas.add(nueva);
         gestor.addPersonToFile(nueva);
 
@@ -104,7 +104,7 @@ public class App {
             System.out.println("No hay personas registradas.");
         } else {
             for (Persona p : personas) {
-                System.out.println(p);
+                System.out.println(p.getFormattedPersonAge());
             }
         }
     }
@@ -116,6 +116,7 @@ public class App {
 
         System.out.println("\n=== CUMPLEAÑOS EN EL MES " + mes + " ===");
         boolean hayCumples = false;
+
         for (Persona p : personas) {
             if (p.getFechaNacimiento().getMonthValue() == mes) {
                 System.out.println(p);

@@ -75,6 +75,36 @@ public class Persona {
                 today.getDayOfMonth() == fechaNacimiento.getDayOfMonth();
     }
 
+    public String getFormattedPersonAge() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("Nombre: ");
+        sb.append(this.getNombre());
+        sb.append(" ");
+        sb.append(this.getApellido());
+        sb.append("\nEdad: ");
+        sb.append(this.getCurrentAge());
+
+        if (this.isBirthdayToday()) {
+            sb.append("\nFELIZ CUMPLE ")
+                    .append(this.fechaNacimiento.getDayOfMonth())
+                    .append("/")
+                    .append(this.fechaNacimiento.getMonthValue());
+        } else if (this.hasBirthdayPassedThisYear()) {
+            sb.append("\nYa cumplió este año el dia: ")
+                    .append(this.fechaNacimiento.getDayOfMonth())
+                    .append("/")
+                    .append(this.fechaNacimiento.getMonthValue());
+        } else {
+            sb.append("\nCumple este año el dia: ")
+                    .append(this.fechaNacimiento.getDayOfMonth())
+                    .append("/")
+                    .append(this.fechaNacimiento.getMonthValue());
+        }
+
+        return sb.toString();
+    }
+
     // ---- ToString de la Clase Persona ----
 
     @Override
