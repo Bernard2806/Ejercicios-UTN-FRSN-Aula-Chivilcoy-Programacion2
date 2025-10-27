@@ -14,19 +14,30 @@ public class App {
 
         try {
             sistemaHotel.agregarReserva(reserva1);
+            System.out.println("✓ Reserva R001 agregada (Habitación " + reserva1.getNumeroHabitacion() + " ocupada) ");
             sistemaHotel.agregarReserva(reserva2);
+            System.out.println("✓ Reserva R002 agregada (Habitación " + reserva2.getNumeroHabitacion() + " ocupada) ");
             sistemaHotel.agregarReserva(reserva1); // Intento de agregar una reserva duplicada
         } catch (Exception e) {
             System.out.println("✗ Error: " + e.getMessage());
         }
 
         System.out.println("\nConfirmando reserva R001...");
-        sistemaHotel.confirmarReserva("R001");
-        System.out.println("✓ Reserva R001 confirmada");
+
+        try {
+            sistemaHotel.confirmarReserva("R001");
+            System.out.println("✓ Reserva R001 confirmada");
+        } catch (Exception e) {
+            System.out.println("✗ Error: " + e.getMessage());
+        }
 
         System.out.println("\nHaciendo check-in de R001...");
-        sistemaHotel.hacerCheckIn("R001");
-        System.out.println("✓ Check-in realizado para R001");
+        try {
+            sistemaHotel.hacerCheckIn("R001");
+            System.out.println("✓ Check-in realizado para R001");
+        } catch (Exception e) {
+            System.out.println("✗ Error: " + e.getMessage());
+        }
 
         System.out.println("\nBuscando reserva R001:");
 
@@ -38,12 +49,23 @@ public class App {
         }
 
         System.out.println("\nHaciendo check-out de R001...");
-        sistemaHotel.hacerCheckOut("R001");
-        System.out.println("✓ Check-out realizado (Habitación " + sistemaHotel.buscarReservaPorCodigo("R001").getNumeroHabitacion() + " liberada)");
+
+        try {
+            sistemaHotel.hacerCheckOut("R001");
+            System.out.println("✓ Check-out realizado (Habitación "
+                    + sistemaHotel.buscarReservaPorCodigo("R001").getNumeroHabitacion() + " liberada)");
+        } catch (Exception e) {
+            System.out.println("✗ Error: " + e.getMessage());
+        }
 
         System.out.println("\nCancelando reserva R002...");
-        sistemaHotel.cancelarReserva("R002");
-        System.out.println("✓ Reserva R002 cancelada (Habitación " + sistemaHotel.buscarReservaPorCodigo("R002").getNumeroHabitacion() + " liberada)");
+        try {
+            sistemaHotel.cancelarReserva("R002");
+            System.out.println("✓ Reserva R002 cancelada (Habitación "
+                    + sistemaHotel.buscarReservaPorCodigo("R002").getNumeroHabitacion() + " liberada)");
+        } catch (Exception e) {
+            System.out.println("✗ Error: " + e.getMessage());
+        }
 
         System.out.println("\n=== REPORTE FINAL ===");
         System.out.println(sistemaHotel.generarReporteOcupacion());
