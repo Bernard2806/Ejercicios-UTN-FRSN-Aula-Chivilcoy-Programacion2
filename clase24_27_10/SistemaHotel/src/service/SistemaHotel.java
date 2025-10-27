@@ -54,13 +54,7 @@ public class SistemaHotel {
      *                                      proporcionado.
      */
     public void confirmarReserva(String codigoReserva) throws ReservaNoEncontradaException {
-
-        Reserva reserva = reservas.get(codigoReserva);
-
-        if (reserva == null) {
-            throw new ReservaNoEncontradaException("Reserva con código " + codigoReserva + " no encontrada.");
-        }
-
+        Reserva reserva = buscarReservaPorCodigo(codigoReserva);
         reserva.setEstado(EstadoReserva.CONFIRMADA);
     }
 
@@ -72,13 +66,7 @@ public class SistemaHotel {
      *                                      código proporcionado.
      */
     public void hacerCheckIn(String codigoReserva) throws ReservaNoEncontradaException {
-
-        Reserva reserva = reservas.get(codigoReserva);
-
-        if (reserva == null) {
-            throw new ReservaNoEncontradaException("Reserva con código " + codigoReserva + " no encontrada.");
-        }
-
+        Reserva reserva = buscarReservaPorCodigo(codigoReserva);
         reserva.setEstado(EstadoReserva.CHECK_IN);
     }
 
@@ -91,13 +79,7 @@ public class SistemaHotel {
      *                                      código proporcionado.
      */
     public void hacerCheckOut(String codigoReserva) throws ReservaNoEncontradaException {
-
-        Reserva reserva = reservas.get(codigoReserva);
-
-        if (reserva == null) {
-            throw new ReservaNoEncontradaException("Reserva con código " + codigoReserva + " no encontrada.");
-        }
-
+        Reserva reserva = buscarReservaPorCodigo(codigoReserva);
         reserva.setEstado(EstadoReserva.CHECK_OUT);
         habitacionesOcupadas.remove(reserva.getNumeroHabitacion());
     }
@@ -111,13 +93,7 @@ public class SistemaHotel {
      *                                      código proporcionado.
      */
     public void cancelarReserva(String codigoReserva) throws ReservaNoEncontradaException {
-
-        Reserva reserva = reservas.get(codigoReserva);
-
-        if (reserva == null) {
-            throw new ReservaNoEncontradaException("Reserva con código " + codigoReserva + " no encontrada.");
-        }
-
+        Reserva reserva = buscarReservaPorCodigo(codigoReserva);
         reserva.setEstado(EstadoReserva.CANCELADA);
         habitacionesOcupadas.remove(reserva.getNumeroHabitacion());
     }
